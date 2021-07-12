@@ -22,12 +22,17 @@ const fruitILike = [
   },
 ]
 
+function renderFruit(fruit) {
+  return (
+    <Fruit name={fruit.name} picture={fruit.image} />
+  )
+}
+
 function App() {
   return (
-    <div className="App">
-      {fruitILike.map(fruit => (
-        <Fruit name={fruit.name} picture={fruit.image} />
-      ))}
+    <div>
+      {console.log(fruitILike.map(renderFruit))}
+      {fruitILike.map(renderFruit)}
     </div>
   );
 }
