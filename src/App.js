@@ -1,51 +1,36 @@
 import React from 'react';
 
-////아래 두 개는 결과가 똑같다.
-
-//첫 번째 방법
-function Fruit1(props) {
-  return <h2>I like {props.fav}, {props.second}, and {props.third}.</h2>
+function Fruit({ name, picture }) {
+  return <div>
+    <h2>I like {name}</h2>
+    <img src={picture} />
+  </div>
 }
 
-function App1() {
+const fruitILike = [
+  {
+    name: "strawberry",
+    image: "https://cdn.imweb.me/upload/S201804055ac60211e0c1d/09110318634f5.jpeg"
+  },
+  {
+    name: "korean melon",
+    image: "https://image.hmall.com/static/2/0/60/24/2124600238_0.jpg?RS=600x600&AR=0"
+  },
+  {
+    name: "banana",
+    image: "https://health.chosun.com/site/data/img_dir/2021/01/27/2021012700739_0.jpg"
+  },
+]
+
+function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <Fruit1 fav="strawberry" second="korean melon" third="banana" />
-    </div>
-  );
-}
-
-//두 번째 방법
-function Fruit2({ fav, second, third }) {
-  return <h2>I like {fav}, {second}, and {third}.</h2>
-}
-
-function App2() {
-  return (
-    <div className="App">
-      <h1>Hello</h1>
-      <Fruit2 fav="strawberry" second="korean melon" third="banana" />
-    </div>
-  );
-}
-
-
-////컴포넌트 재활용하기
-function Fruit3({ fav }) {
-  return <h2>I like {fav}.</h2>
-}
-
-function App3() {
-  return (
-    <div className="App">
-      <h1>Hello</h1>
-      <Fruit3 fav="strawberry" />
-      <Fruit3 fav="korean melon" />
-      <Fruit3 fav="banana" />
+      {fruitILike.map(fruit => (
+        <Fruit name={fruit.name} picture={fruit.image} />
+      ))}
     </div>
   );
 }
 
 
-export default App3;
+export default App;
