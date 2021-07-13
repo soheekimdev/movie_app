@@ -1,44 +1,25 @@
 import React from 'react';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log("constructor");
-  };
-
   state = {
-    count: 0
+    isLoading: true
   };
-  add = () => {
-    this.setState(current => ({ count: current.count + 1 }))
-  };
-  minus = () => {
-    this.setState(current => ({ count: current.count - 1 }))
-  };
-
   componentDidMount() {
-    console.log("componentDidMount");
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 6000);
   }
 
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
-  }
+  // render() {
+  //   return <div>{this.state.isLoading ? "Loading..." : "We are ready"}</div>;
+  // }
 
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
-  }
+  //위와 아래는 결과가 같음
 
   render() {
-    console.log("render");
-    return (
-      <div>
-        <h1>The number is: {this.state.count}</h1>
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Minus</button>
-      </div>
-    );
+    const { isLoading } = this.state;  //Get me isLoading from the state.
+    return <div>{isLoading ? "Loading..." : "We are ready"}</div>;
   }
-
 }
 
 
