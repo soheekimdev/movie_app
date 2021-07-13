@@ -1,5 +1,6 @@
-import react from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
+import "./Movie.css";
 
 function Movie({ year, title, summary, poster }) {
   return <div class="movies__movie">
