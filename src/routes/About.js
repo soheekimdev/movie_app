@@ -1,7 +1,7 @@
 import React from 'react';
 
-function About(props) {
-  console.log(props);
+function About({location}) {
+  console.log({location});
   return <span>About this page: I built it because I love movies.</span>
 }
 
